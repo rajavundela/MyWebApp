@@ -60,7 +60,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-   margin-bottom: 60px;
+   margin-bottom: 120px;
    /* Margin top by navbar height */
    margin-top: 80px;
 }
@@ -70,4 +70,26 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+
+.fab{
+    padding:5px;
+}
+.fab:hover{
+    opacity:0.7;
+}
+
+/* setting colors of icons*/
+.fa-twitter {
+    color: #55ACEE;
+}
+.fa-linkedin {
+    color: #007bb5;
+}
+.fa-youtube {
+    color: #bb0000;
+}
+.fa-github{
+    color:black;
 }

@@ -6,7 +6,8 @@
     <title>@ViewData["Title"] | RajaRV</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/lib/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet"> <!--load all font awesome styles -->
 </head>
 <body>
     <header>
@@ -33,7 +34,8 @@
                             <a class="nav-link" asp-page="/Portfolio/Index">My Portfolio <i class="fas fa-briefcase"></i></a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto"> <!-- .ml-auto class puts this list to the right.-->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- .ml-auto class puts this list to the right.-->
                         <li class="nav-item">
                             <a class="nav-link" asp-page="#">Login <i class="fas fa-sign-in-alt"></i></a>
                         </li>
@@ -41,6 +43,12 @@
                             <a class="nav-link" asp-page="#">Sign Up <i class="fas fa-user-alt"></i></a>
                         </li>
                     </ul>
+                    @*<span class="navbar-text">
+                        <a href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
+                    </span>*@
                 </div>
 
             </div>
@@ -51,14 +59,18 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - RajaRV.com - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <br />
+            Connect with me on:
+            <a href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/0741bebd44.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
