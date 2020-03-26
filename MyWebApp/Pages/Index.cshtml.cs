@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration.AzureKeyVault;
+using Microsoft.Data.SqlClient;
 
 namespace MyWebApp.Pages
 {
@@ -19,7 +21,7 @@ namespace MyWebApp.Pages
 
         public void OnGet()
         {
-
+            
         }
     }
 }
