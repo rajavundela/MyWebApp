@@ -81,6 +81,10 @@ body {
 }
 
 /* setting colors of icons*/
+.fa-home, .fa-blog, .fa-briefcase{
+    color:#1a423d;
+}
+
 .fa-twitter {
     color: #55ACEE;
 }
@@ -93,3 +97,4 @@ body {
 .fa-github{
     color:black;
 }
+

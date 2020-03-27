@@ -25,22 +25,22 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="/Index">Home <i class="fas fa-home"></i></a>
+                            <a class="nav-link" asp-page="/Index"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="/Blog/Index">Blog <i class="fas fa-blog"></i></a>
+                            <a class="nav-link" asp-page="/Blog/Index"><i class="fas fa-blog"></i> Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="/Portfolio/Index">My Portfolio <i class="fas fa-briefcase"></i></a>
+                            <a class="nav-link" asp-page="/Portfolio/Index"><i class="fas fa-briefcase"></i> My Portfolio </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <!-- .ml-auto class puts this list to the right.-->
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="#">Login <i class="fas fa-sign-in-alt"></i></a>
-                        </li>
+                            <a class="nav-link btn btn-light sign-in-up" style="border:1px solid grey;margin:5px;" asp-page="#">Login <i class="fas fa-sign-in-alt"></i></a>
+                        </li>   
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="#">Sign Up <i class="fas fa-user-alt"></i></a>
+                            <a class="nav-link btn btn-secondary sign-in-up" style="color:white;margin:5px;" asp-page="#">Sign Up <i class="fas fa-user-alt"></i></a>
                         </li>
                     </ul>
                     @*<span class="navbar-text">
@@ -61,13 +61,12 @@
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - RajaRV.com - <a asp-area="" asp-page="/Privacy">Privacy</a>
-            <br />
             Connect with me on:
             <a href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
             <a href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
             <a href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a><br />
+            &copy; 2020 - RajaRV.com - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
