@@ -81,8 +81,8 @@ body {
 }
 
 /* setting colors of icons*/
-.fa-home, .fa-blog, .fa-briefcase{
-    color:#1a423d;
+.fa-home, .fa-blog, .fa-briefcase, .fa-sign-in-alt{
+    color: #1a423d;
 }
 
 .fa-twitter {
