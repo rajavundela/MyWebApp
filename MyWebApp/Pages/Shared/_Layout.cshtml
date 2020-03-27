@@ -6,12 +6,17 @@
     <title>@ViewData["Title"] | RajaRV</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="~/css/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet"> <!--load all font awesome styles -->
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top border-bottom">
+        <div id="top-jumbotron" class="jumbotron jumbotron-fluid">
+            <div class="container" style="text-align:center">
+                <h1 class="display-4">RajaRV</h1>
+                <p class="lead">Development, Tech Articles and more..</p>
+            </div>
+        </div>
+        <nav class="navbar sticky-top navbar-expand-md bg-light navbar-light">
             <div class="container">
                 <!-- Brand/logo -->
                 <a class="navbar-brand" asp-page="#">RajaRV</a>
@@ -26,29 +31,30 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" asp-page="/Index"><i class="fas fa-home"></i> Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-page="/Blog/Index"><i class="fas fa-blog"></i> Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-page="/Portfolio/Index"><i class="fas fa-briefcase"></i> My Portfolio </a>
-                        </li>
+                        </li>    
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <!-- .ml-auto class puts this list to the right.-->
                         <li class="nav-item">
-                            <a class="nav-link btn btn-light sign-in-up" style="border:1px solid grey;margin:5px;" asp-page="#">Login <i class="fas fa-sign-in-alt"></i></a>
-                        </li>   
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-secondary sign-in-up" style="color:white;margin:5px;" asp-page="#">Sign Up <i class="fas fa-user-alt"></i></a>
+                            <a class="nav-link" asp-page="/Portfolio/Contact"><i class="fas fa-id-card-alt"></i> Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Portfolio/Index"><i class="fas fa-briefcase"></i> My Portfolio</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link btn btn-light sign-in-up" style="border:1px solid grey;margin-left:5px;" asp-page="#">Login <i class="fas fa-sign-in-alt"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-secondary sign-in-up" style="color:white;margin-left:5px;" asp-page="#">Sign Up <i class="fas fa-user-alt"></i></a>
+                        </li>
+                        *@
                     </ul>
-                    @*<span class="navbar-text">
-                        <a href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
-                        <a href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
-                    </span>*@
+                    <span class="navbar-text">
+                        <a target="_blank" href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a target="_blank" href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
+                    </span>
                 </div>
 
             </div>
@@ -62,10 +68,10 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             Connect with me on:
-            <a href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
-            <a href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a><br />
+            <a target="_blank" href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
+            <a target="_blank" href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a target="_blank" href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a><br />
             &copy; 2020 - RajaRV.com - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>

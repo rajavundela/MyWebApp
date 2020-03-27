@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyWebApp.Pages.Blog
+namespace MyWebApp.Pages.Portfolio
 {
-    public class IndexModel : PageModel
+    public class ContactModel : PageModel
     {
         public void OnGet()
         {

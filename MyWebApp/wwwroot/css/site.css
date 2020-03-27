@@ -62,7 +62,6 @@ body {
   /* Margin bottom by footer height */
    margin-bottom: 120px;
    /* Margin top by navbar height */
-   margin-top: 80px;
 }
 .footer {
   position: absolute;
@@ -72,7 +71,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-
+/* for font awesome brands*/
 .fab{
     padding:5px;
 }
@@ -81,8 +80,8 @@ body {
 }
 
 /* setting colors of icons*/
-.fa-home, .fa-blog, .fa-briefcase, .fa-sign-in-alt{
-    color: #1a423d;
+header .fas {
+    color: #2c6861;
 }
 
 .fa-twitter {
@@ -96,5 +95,9 @@ body {
 }
 .fa-github{
     color:black;
+}
+
+#top-jumbotron{
+    margin-bottom:5px;
 }
 
