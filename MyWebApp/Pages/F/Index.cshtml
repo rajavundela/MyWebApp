@@ -1,0 +1,33 @@
+﻿@page
+@model MyWebApp.Pages.F.IndexModel
+@{
+    ViewData["Title"] = "F";
+    //ViewData needs typecasting if it is complex and needs null check to avoid null exceptions
+    var display = (List<IDictionary<string, string>>)ViewData["Display"];
+}
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Starring</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+           @for(int i = 0; i < display.Count; i++)
+           {
+            <tr>
+                <td>@display[i]["Starring"]</td>
+                <td>@display[i]["Title"]</td>
+                <td><a target="_blank" href="@display[i]["Link"]">Visit</a></td>
+                <td>@display[i]["Category"]</td>
+                <td>@display[i]["Description"]</td>
+            </tr>
+           }
+        </tbody>
+    </table>
+</div>

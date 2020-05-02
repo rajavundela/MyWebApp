@@ -1,6 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 /* a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -53,7 +53,7 @@ html {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+html{
   position: relative;
   min-height: 100%;
 }
@@ -97,7 +97,21 @@ header .fas {
     color:black;
 }
 
-#top-jumbotron{
-    margin-bottom:5px;
+/*Jumbotron puts some margin-bottom and top, bottom padding. so, remove it. */
+#top-jumbotron {
+    border-bottom: 3px solid rgb(190, 196, 184);
+    border-top: 3px solid rgb(190, 196, 184);
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom:0px;
+    background-color: #f4f5f4;
 }
-
+.logo {
+    font-weight:500;
+    color:rgb(75, 23, 122);
+    font-family: 'Marck Script', cursive;
+}
+#top-jumbotron p {
+    font-family: cursive;
+    color:rgb(42, 74, 116);
+}
