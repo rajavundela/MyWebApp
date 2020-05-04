@@ -6,8 +6,9 @@
     var display = (List<IDictionary<string, string>>)ViewData["Display"];
 }
 
-<div class="container">
-    <table class="table table-striped">
+<div class="container-fluid">
+    <h3><a asp-page="/F/Create" class="btn btn-sm btn-outline-secondary">Add Record</a> <a asp-page="/Account/Logout" class="btn btn-sm btn-outline-danger">Logout</a></h3>
+    <table class="table table-sm table-striped table-bordered">
         <thead>
             <tr>
                 <th>Starring</th>
@@ -15,6 +16,8 @@
                 <th>Link</th>
                 <th>Category</th>
                 <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +29,13 @@
                 <td><a target="_blank" href="@display[i]["Link"]">Visit</a></td>
                 <td>@display[i]["Category"]</td>
                 <td>@display[i]["Description"]</td>
+                <td></td>
+                <td>
+                    <form asp-page="/F/Delete" method="POST">
+                        <input type="number" name="id" value="@display[i]["Id"]" hidden>
+                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
            }
         </tbody>

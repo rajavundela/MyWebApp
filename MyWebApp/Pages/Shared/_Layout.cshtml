@@ -16,9 +16,9 @@
                 <p class="lead">Development, Tech Articles and more..</p>
                 <p>
                     Connect with me on:
-                    <a target="_blank" href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a target="_blank" href="https://www.twitter.com/RajaVundela"><i class="fab fa-twitter fa-lg"></i></a>
                     <a target="_blank" href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
-                    <a target="_blank" href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/RajaVundela"><i class="fab fa-linkedin fa-lg"></i></a>
                     <a target="_blank" href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
                 </p>
             </div>
@@ -67,9 +67,9 @@
                         *@
                     </ul>
                     @*<span class="navbar-text">
-                        <a target="_blank" href="https://www.twitter.com/RajaRVundela"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a target="_blank" href="https://www.twitter.com/RajaVundela"><i class="fab fa-twitter fa-lg"></i></a>
                         <a target="_blank" href="https://www.youtube.com/channel/UCkCBdgjbeivW8vlvKs82TXA"><i class="fab fa-youtube fa-lg"></i></a>
-                        <a target="_blank" href="https://www.linkedin.com/in/RajaRVundela"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/RajaVundela"><i class="fab fa-linkedin fa-lg"></i></a>
                         <a target="_blank" href="https://github.com/RajaVundela"><i class="fab fa-github fa-lg"></i></a>
                     </span>*@
                 </div>
@@ -77,14 +77,13 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div>
+        @RenderBody()
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - RajaRV.com - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - <a asp-page="/Index">RajaRV.com</a> - Raja R. Vundela
+             @* - <a asp-area="" asp-page="/Privacy">Privacy</a> *@
         </div>
     </footer>
 

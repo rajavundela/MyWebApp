@@ -16,7 +16,7 @@ namespace MyWebApp.Pages.F
             var display = new List<IDictionary<string, string>>();
             using (SqlConnection con = new SqlConnection(dbString))
             {
-                SqlCommand cmd = new SqlCommand("select Starring, Title, Link, Description, Category from Content", con);
+                SqlCommand cmd = new SqlCommand("select Id, Starring, Title, Link, Description, Category from Content", con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

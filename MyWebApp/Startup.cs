@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MyWebApp
 {
@@ -23,7 +24,17 @@ namespace MyWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            // for authentication
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options => {
+                options.LoginPath = "/Account/Login"; // redirecting login if user's not authenticated for a sensitive route
+            });
+
+            services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizeFolder("/F");//For restricting access to the folder F
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +56,7 @@ namespace MyWebApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

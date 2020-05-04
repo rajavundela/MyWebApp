@@ -79,6 +79,10 @@ body {
     opacity:0.7;
 }
 
+header{
+  margin-bottom: 10px;
+}
+
 /* setting colors of icons*/
 header .fas {
     color: #2c6861;
