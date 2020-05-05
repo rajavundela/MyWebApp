@@ -28,8 +28,9 @@ namespace MyWebApp
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options => {
                 options.LoginPath = "/Account/Login"; // redirecting login if user's not authenticated for a sensitive route
+                options.ExpireTimeSpan = new TimeSpan(7, 0, 0, 0); // putting a 7 days of session
             });
-
+            
             services.AddRazorPages()
                 .AddRazorPagesOptions(options =>
                 {

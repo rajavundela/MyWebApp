@@ -17,7 +17,7 @@ namespace MyWebApp.Pages.Account
         {
         }
 
-        public async Task<IActionResult> OnPost(string username, string password){
+        public async Task<IActionResult> OnPost(string username, string password, bool remember, string ReturnUrl){
             string dbString = Environment.GetEnvironmentVariable("AZURE_DATABASE_CONNECTION_STRING");
             using (SqlConnection con = new SqlConnection(dbString))
             {
@@ -37,8 +37,14 @@ namespace MyWebApp.Pages.Account
                             claims, CookieAuthenticationDefaults.AuthenticationScheme
                         );
                         ClaimsPrincipal principal = new ClaimsPrincipal(claimsIdentity);
-                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                        return RedirectToPage("/F/Index");
+
+                        await HttpContext.SignInAsync(
+                            CookieAuthenticationDefaults.AuthenticationScheme,
+                            principal,
+                            new AuthenticationProperties(){
+                                IsPersistent = remember
+                            });
+                        return RedirectToPage(ReturnUrl == null ? "/F/Index" : ReturnUrl);
                     }
                 }
             }
