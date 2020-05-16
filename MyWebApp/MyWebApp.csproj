@@ -4,14 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="wwwroot\lib\fontawesome-free-5.13.0-web\" />
-    <Folder Include="Pages\F\" />
-    <Folder Include="Pages\Account\" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="1.1.2" />
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.4.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.4.2" />
+    <PackageReference Include="MarkdownSharp" Version="2.0.5" />
   </ItemGroup>
   
 </Project>

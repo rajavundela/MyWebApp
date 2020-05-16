@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet"> <!--load all font awesome styles -->
+    <link rel=""/>
 </head>
 <body>
     <header>
@@ -40,8 +41,8 @@
                             <a class="nav-link" asp-page="/Index"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDevelopmentDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-code"></i> Development</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDevelopmentDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarCategoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarCategoryDropdown">
                                 <a class="dropdown-item" href="#">Python</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Item 2</a>
@@ -52,12 +53,12 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <!-- .ml-auto class puts this list(second list) to the right.-->
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link" asp-page="/Contact"><i class="fas fa-id-card-alt"></i> Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-page="/Portfolio"><i class="fas fa-briefcase"></i> My Portfolio</a>
-                        </li>
+                        </li> *@
                         @*<li class="nav-item">
                             <a class="nav-link btn btn-light sign-in-up" style="border:1px solid grey;margin-left:5px;" asp-page="#">Login <i class="fas fa-sign-in-alt"></i></a>
                         </li>
@@ -65,6 +66,9 @@
                             <a class="nav-link btn btn-secondary sign-in-up" style="color:white;margin-left:5px;" asp-page="#">Sign Up <i class="fas fa-user-alt"></i></a>
                         </li>
                         *@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Post/Create">Write An Article <i class="fas fa-pen-alt"></i></a>
+                        </li>
                     </ul>
                     @*<span class="navbar-text">
                         <a target="_blank" href="https://www.twitter.com/RajaVundela"><i class="fab fa-twitter fa-lg"></i></a>
@@ -77,12 +81,19 @@
             </div>
         </nav>
     </header>
+    @if(TempData["Message"] != null){
+        <div class="container" style="margin-top: -10px;">
+            <div class="alert alert-info" style="text-align: center;" role="alert">
+            @TempData["Message"]
+        </div>
+        </div>
+    }
     <div>
         @RenderBody()
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - <a asp-page="/Index">RajaRV.com</a> - Raja R. Vundela
+            &copy; @DateTime.Now.Year - <a asp-page="/Index">RajaRV.com</a>
              @* - <a asp-area="" asp-page="/Privacy">Privacy</a> *@
         </div>
     </footer>

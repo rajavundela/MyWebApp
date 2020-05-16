@@ -1,4 +1,10 @@
 ﻿@page
 @model MyWebApp.Pages.Account.LogoutModel
 @{
+    ViewData["Title"] = "Logout";
 }
+
+<div class="container">
+    <p>You have logged out.</p>
+    <p>Click <a asp-page="/Account/Login">here</a> to login again.</p>
+</div>

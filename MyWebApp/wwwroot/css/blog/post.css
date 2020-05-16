@@ -1,0 +1,38 @@
+/* styles for post */
+img{
+    /* to display image in center */
+    margin: auto;
+    display: block;
+    /* to make image responsive */
+    max-width: 100%;
+    height: auto;
+}
+
+pre{
+    background-color: #eff0f1;
+    font-size: 13px;
+    padding: 12px 8px;
+    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
+    border-radius: 3px;
+    margin-bottom: 1em;
+}
+
+code{
+    background-color: #eff0f1;
+    padding: 3px;
+}
+
+.about-author p{
+    color: rgba(0, 0, 0, 0.54);
+}
+.about-author a{
+    color: black;
+}
+
+.avatar {
+    vertical-align: top;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

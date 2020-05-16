@@ -1,0 +1,61 @@
+﻿@page
+@model MyWebApp.Pages.Post.CreateModel
+@{
+    ViewData["Title"] = "Create Post";
+    <link href="~/css/blog/post.css" rel="stylesheet" type="text/css">
+    <link href="~/css/blog/editor.css" rel="stylesheet" type="text/css">
+}
+
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="title">Title(max 250 chars): *</label>
+            <input class="form-control" type="text" id="title" name="title" maxlength="250" required>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category: *</label>
+            <select class="form-control" id="category" name="category" required>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        @* <div class="form-group">
+            <label for="content">Markdown: *</label>
+            <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+        </div> *@
+
+        <label for="wmd-input">Markdown: *</label>
+        <small id="markdownHelp" class="form-text text-muted">
+            <ul>
+                <li>This is the Markdown editor and converter used on Stack Overflow and other Stack Exchange sites.</li>
+                <li>If something cannot be written in markdown, then use raw html along with bootstrap v4 classes.</li>
+                <li><a href="~/css/blog/post.css">These</a> are styles that are automatically applied.</li>
+            </ul>
+        </small>
+        <div id="wmd-button-bar"></div>
+        <textarea id="wmd-input" class="wmd-input" name="content" aria-describedby="markdownHelp" required></textarea>
+        
+        <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+    </form>
+    <hr>
+    <h1>Your post title appears here.</h1>
+    <hr>
+    <p><em>Published on, Dec 7, 2017</em></p>
+    <div id="wmd-preview" class="wmd-panel wmd-preview" style="text-align: left;"></div>
+</div>
+
+@section Scripts{
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
+    <script>
+        var converter = Markdown.getSanitizingConverter();
+        var editor = new Markdown.Editor(converter);
+        editor.run();
+    </script>
+}

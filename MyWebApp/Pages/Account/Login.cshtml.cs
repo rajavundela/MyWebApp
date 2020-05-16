@@ -17,20 +17,20 @@ namespace MyWebApp.Pages.Account
         {
         }
 
-        public async Task<IActionResult> OnPost(string username, string password, bool remember, string ReturnUrl){
+        public async Task<IActionResult> OnPost(string email, string password, bool remember, string ReturnUrl){
             string dbString = Environment.GetEnvironmentVariable("AZURE_DATABASE_CONNECTION_STRING");
             using (SqlConnection con = new SqlConnection(dbString))
             {
-                SqlCommand cmd = new SqlCommand("select username, password from users where username=@0", con);
-                cmd.Parameters.AddWithValue("@0", username);
+                SqlCommand cmd = new SqlCommand("select email, password from users where email=@0", con);
+                cmd.Parameters.AddWithValue("@0", email);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())//user found with username
+                if (reader.Read())//user found with email
                 {
-                    if (password == Convert.ToString(reader["password"]))// check for password
+                    if (password == reader["password"].ToString())// check for password
                     {
                         var claims = new List<Claim>{
-                            new Claim(ClaimTypes.Name, username),
+                            new Claim(ClaimTypes.Email, email),
                             new Claim(ClaimTypes.Role, "Administrator")
                         };
                         var claimsIdentity = new ClaimsIdentity(
@@ -44,8 +44,15 @@ namespace MyWebApp.Pages.Account
                             new AuthenticationProperties(){
                                 IsPersistent = remember
                             });
-                        return RedirectToPage(ReturnUrl == null ? "/F/Index" : ReturnUrl);
+                        TempData["Message"] = "Welcome !";
+                        return Redirect(ReturnUrl == null ? "/F/Index" : ReturnUrl);
                     }
+                    else{
+                        TempData["Message"] = "Invalid Password.";
+                    }
+                }
+                else{
+                    TempData["Message"] = "User does not exist with this email.";
                 }
             }
             return Page();

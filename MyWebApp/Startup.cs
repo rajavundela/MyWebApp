@@ -34,7 +34,7 @@ namespace MyWebApp
             services.AddRazorPages()
                 .AddRazorPagesOptions(options =>
                 {
-                    options.Conventions.AuthorizeFolder("/F");//For restricting access to the folder F
+                    //options.Conventions.AuthorizeFolder("/F");//For restricting access to the folder F
                 });
         }
 
