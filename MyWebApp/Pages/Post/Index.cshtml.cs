@@ -21,17 +21,33 @@ namespace MyWebApp.Pages.Post
         public string AuthorLink{get;set;}
         public string AuthorIntro{get;set;}
 
-        public void OnGet(Int64 id, string slug)
+        public IActionResult OnGet(Int64 id, string slug)
         {
+            // slug = post title as slug, id = post-id
             string dbString = Environment.GetEnvironmentVariable("AZURE_DATABASE_CONNECTION_STRING");
             using(SqlConnection con = new SqlConnection(dbString)){
-                SqlCommand cmd = new SqlCommand("DisplayPost", con);
+                con.Open();
+                // if slug is not entered or incorrect, then make a redirect
+                SqlCommand cmd = new SqlCommand("select slug from posts where id=@0", con);
+                cmd.Parameters.AddWithValue("@0", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read()){
+                    string dbSlug = reader["slug"].ToString();
+                    if(!dbSlug.Equals(slug, StringComparison.OrdinalIgnoreCase)){
+                        return RedirectPermanent($"/Post/{id}/{dbSlug}");
+                    }
+                }
+                else{
+                    return NotFound();
+                }
+                reader.Close();
+
+                // for displaying post
+                cmd = new SqlCommand("DisplayPost", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Id", id));
-                cmd.Parameters.Add(new SqlParameter("@slug", slug));
 
-                con.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
                 if(reader.Read()){
                     PostContent = reader["Content"].ToString();
                     CreatedAt = reader["CreatedAt"].ToString();
@@ -49,6 +65,8 @@ namespace MyWebApp.Pages.Post
             PostContent = markdown.Transform(PostContent);
             ViewData["Id"] = id;
             ViewData["Slug"] = slug;
+
+            return Page();
         }
     }
 }

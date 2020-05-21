@@ -1,25 +1,42 @@
 using System;
-using System.Data;
-using System.Security.Claims;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Security.Claims;
 
 namespace MyWebApp.Pages.Post
 {
     [Authorize]
-    public class CreateModel : PageModel
+    public class UpdateModel : PageModel
     {
-        public void OnGet()
-        {
-        }
-        public void OnPost(string title, string category, string content){
+        public string Title{get; set;}
+        public string PostContent{get; set;}
+        public string Category{get;set;}
+        private string dbString = Environment.GetEnvironmentVariable("AZURE_DATABASE_CONNECTION_STRING");
 
+        public void OnGet(Int64 id)
+        {
+            using(SqlConnection con = new SqlConnection(dbString)){
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select Title, Content, Category from Posts where Id=@0", con);
+                cmd.Parameters.AddWithValue("@0", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read()){
+                    Title = reader["Title"].ToString();
+                    PostContent = reader["Content"].ToString();
+                    Category = reader["Category"].ToString();
+                }
+                reader.Close();
+            }
+        }
+
+        public IActionResult OnPost(long id, string title, string content, string category){
             //preparing slug
             string slug = title.ToLower(); 
             // invalid chars           
@@ -31,18 +48,18 @@ namespace MyWebApp.Pages.Post
             slug = Regex.Replace(slug, @"\s", "-"); // hyphens 
 
             var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;//? stops if it is null
-            string dbString = Environment.GetEnvironmentVariable("AZURE_DATABASE_CONNECTION_STRING");
             using(SqlConnection con = new SqlConnection(dbString)){
-                SqlCommand cmd = new SqlCommand("insertPost", con);
+                SqlCommand cmd = new SqlCommand("UpdatePost", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Slug", slug));
                 cmd.Parameters.Add(new SqlParameter("@Title", title));
                 cmd.Parameters.Add(new SqlParameter("@Category", category));
                 cmd.Parameters.Add(new SqlParameter("@Content", content));
                 cmd.Parameters.Add(new SqlParameter("@AuthorId", userId));
+                cmd.Parameters.Add(new SqlParameter("@PostId", id));
                 con.Open();
-                cmd.ExecuteNonQuery();
             }
+            return Redirect($"/Post/{id}/{slug}");
         }
     }
 }

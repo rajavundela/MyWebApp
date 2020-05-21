@@ -21,7 +21,7 @@ namespace MyWebApp.Pages.Account
             string dbString = Environment.GetEnvironmentVariable("AZURE_DATABASE_CONNECTION_STRING");
             using (SqlConnection con = new SqlConnection(dbString))
             {
-                SqlCommand cmd = new SqlCommand("select email, password from users where email=@0", con);
+                SqlCommand cmd = new SqlCommand("select Id, email, password from users where email=@0", con);
                 cmd.Parameters.AddWithValue("@0", email);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -31,7 +31,8 @@ namespace MyWebApp.Pages.Account
                     {
                         var claims = new List<Claim>{
                             new Claim(ClaimTypes.Email, email),
-                            new Claim(ClaimTypes.Role, "Administrator")
+                            new Claim(ClaimTypes.Role, "User"),
+                            new Claim(ClaimTypes.NameIdentifier, reader["Id"].ToString()) //userid
                         };
                         var claimsIdentity = new ClaimsIdentity(
                             claims, CookieAuthenticationDefaults.AuthenticationScheme
@@ -45,7 +46,7 @@ namespace MyWebApp.Pages.Account
                                 IsPersistent = remember
                             });
                         TempData["Message"] = "Welcome !";
-                        return Redirect(ReturnUrl == null ? "/F/Index" : ReturnUrl);
+                        return Redirect(ReturnUrl == null ? "/Index" : ReturnUrl);
                     }
                     else{
                         TempData["Message"] = "Invalid Password.";

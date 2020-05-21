@@ -1,7 +1,7 @@
-﻿@page
-@model MyWebApp.Pages.Post.CreateModel
+﻿@page "{id:long}"
+@model MyWebApp.Pages.Post.UpdateModel
 @{
-    ViewData["Title"] = "Create Post";
+    ViewData["Title"] = "Update Post";
     <link href="~/css/blog/post.css" rel="stylesheet" type="text/css">
     <link href="~/css/blog/editor.css" rel="stylesheet" type="text/css">
 }
@@ -10,7 +10,7 @@
     <form method="post">
         <div class="form-group">
             <label for="title">Title(max 250 chars): *</label>
-            <input class="form-control" type="text" id="title" name="title" maxlength="250" required>
+            <input class="form-control" type="text" id="title" name="title" maxlength="250" value="@Model.Title" required>
         </div>
 
         <div class="form-group">
@@ -33,15 +33,15 @@
             </ul>
         </small>
         <div id="wmd-button-bar"></div>
-        <textarea id="wmd-input" class="wmd-input" name="content" aria-describedby="markdownHelp" required></textarea>
+        <textarea id="wmd-input" class="wmd-input" name="content" aria-describedby="markdownHelp" required>@Model.PostContent</textarea>
         
-        <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+        <button class="btn btn-sm btn-primary" type="submit">Update</button>
     </form>
     <hr>
     <h1>Your post title appears here.</h1>
     <hr>
-    <p><em>Published on, Dec 7, 2017</em></p>
-    <div id="wmd-preview" class="wmd-panel wmd-preview" style="text-align: left;"></div>
+    <p><em>Published on, [Date Here]</em></p>
+    <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 </div>
 
 @section Scripts{
