@@ -58,8 +58,17 @@ namespace MyWebApp.Pages.Post
                 cmd.Parameters.Add(new SqlParameter("@AuthorId", userId));
                 cmd.Parameters.Add(new SqlParameter("@PostId", id));
                 con.Open();
+                // For UPDATE, INSERT, and DELETE statements, the return value is the number of rows affected by the command. For all other types of statements, the return value is -1
+                if(cmd.ExecuteNonQuery() > 0){
+                    TempData["Message"] = "Post updated.";
+                    return Redirect($"/Post/{id}/{slug}");
+                }
+                else{
+                    // It means either id is invalid or author is not post's author
+                    return Unauthorized();
+                }
             }
-            return Redirect($"/Post/{id}/{slug}");
+            
         }
     }
 }

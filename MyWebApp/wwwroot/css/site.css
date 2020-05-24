@@ -51,16 +51,9 @@ html {
   line-height: inherit;
 } */
 
-/* Sticky footer styles
--------------------------------------------------- */
-html{
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   /* Margin bottom by footer height */
-   margin-bottom: 120px;
+   /* margin-bottom: 60px; */
    /* Margin top by navbar height */
 
 
@@ -68,13 +61,7 @@ body {
   /* color: rgba(0, 0, 0, 0.9); */
   font-family: Varela, sans-serif;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
+
 
 /* for font awesome brands*/
 .fab{
@@ -90,7 +77,7 @@ header{
 
 /* setting colors of icons*/
 header .fas {
-    color: #2c6861;
+    color: #519188;
 }
 
 .fa-twitter {
@@ -108,8 +95,8 @@ header .fas {
 
 /*Jumbotron puts some margin-bottom and top, bottom padding. so, remove it. */
 #top-jumbotron {
-    border-bottom: 3px solid rgb(190, 196, 184);
-    border-top: 3px solid rgb(190, 196, 184);
+    /* border-bottom: 3px solid rgb(190, 196, 184);
+    border-top: 3px solid rgb(190, 196, 184); */
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom:0px;
@@ -123,4 +110,8 @@ header .fas {
 #top-jumbotron p {
     font-family: cursive;
     color:rgb(42, 74, 116);
+}
+
+a {
+  color: rgb(92, 92, 141);
 }

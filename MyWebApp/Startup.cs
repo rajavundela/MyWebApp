@@ -60,6 +60,9 @@ namespace MyWebApp
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //It manages http errors and display messages
+            app.UseStatusCodePages();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

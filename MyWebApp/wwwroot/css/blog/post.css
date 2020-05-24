@@ -36,3 +36,7 @@ code{
     height: 50px;
     border-radius: 50%;
 }
+
+.date{
+    color: rgba(0, 0, 0, 0.54);
+}
