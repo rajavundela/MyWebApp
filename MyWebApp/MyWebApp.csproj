@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.7" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.4.2" />
     <PackageReference Include="MarkdownSharp" Version="2.0.5" />
   </ItemGroup>
